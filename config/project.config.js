@@ -1,7 +1,6 @@
 const path = require('path');
 const debug = require('debug')('app:config:project');
 const argv = require('yargs').argv;
-const ip = require('ip');
 
 debug('Creating default configuration.');
 // ========================================================
@@ -23,7 +22,7 @@ const config = {
   // ----------------------------------
   // Server Configuration
   // ----------------------------------
-  server_host: process.env.NODE_ENV === 'development' ? 'local-dev.reworkapp.com' : ip.address(), // use string 'localhost' to prevent exposure on local network
+  server_host: 'localhost', // use string 'localhost' to prevent exposure on local network
   server_port: process.env.PORT || 8080,
   ssl_server_port: 8443,
 

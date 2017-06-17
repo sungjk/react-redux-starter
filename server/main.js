@@ -22,17 +22,17 @@ app.use(connectHistory());
 // Apply gzip compression
 app.use(compress());
 
-// Redirect to https
-app.use((req, res, next) => {
-  if (req.secure) {
-    return next();
-  }
-
-  // res.redirect('https://' + req.host + req.url); // express 3.x
-  const hostname = req.hostname.split(':')[0];
-  const port = project.env === 'development' ? project.ssl_server_port : 443;
-  return res.redirect(`https://${hostname}:${port}${req.originalUrl}`); // express 4.x
-});
+// Use if you need to redirect from http to https
+// app.use((req, res, next) => {
+//   if (req.secure) {
+//     return next();
+//   }
+//
+//   // res.redirect('https://' + req.host + req.url); // express 3.x
+//   const hostname = req.hostname.split(':')[0];
+//   const port = project.env === 'development' ? project.ssl_server_port : 443;
+//   return res.redirect(`https://${hostname}:${port}${req.originalUrl}`); // express 4.x
+// });
 
 // ------------------------------------
 // Apply Webpack HMR Middleware

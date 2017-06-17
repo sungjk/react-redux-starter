@@ -1,4 +1,3 @@
-import assign from 'object-assign';
 import { EventEmitter } from 'events';
 
 class SocketMiddleware extends EventEmitter {
@@ -38,7 +37,7 @@ class SocketMiddleware extends EventEmitter {
           break;
         case 'SEND':
           if (this.ws.readyState === WebSocket.OPEN) {
-            const reqJson = assign({}, action.params, {
+            const reqJson = Object.assign({}, action.params, {
               action: action.action,
               reqId: this.reqId,
             });
@@ -64,12 +63,10 @@ class SocketMiddleware extends EventEmitter {
 
   onOpen() {
     console.log('WebSocket opened');
-    // this.store.dispatch(appActions.updateSocketConnection(true));
   }
 
   onClose() {
     console.log('WebSocket closed');
-    // this.store.dispatch(appActions.updateSocketConnection(false));
   }
 
   onError(error) {
@@ -78,7 +75,6 @@ class SocketMiddleware extends EventEmitter {
 
   onMessage(message) {
     const data = JSON.parse(message.data);
-    // console.log('get', data);
     if (data.hasOwnProperty('action')) {
       // TODO
     } else {

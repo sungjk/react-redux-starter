@@ -1,7 +1,7 @@
 {
   "name": "react-redux-starter",
   "version": "0.0.1",
-  "description": "Get started with React, Redux, and React-Router.",
+  "description": "Get started with React, Redux, and Redux-Observable.",
   "author": "Jeremy",
   "license": "MIT",
   "repository": {
@@ -9,9 +9,8 @@
     "url": "https://github.com/sungjk/react-redux-starter.git"
   },
   "scripts": {
-    "start": "node bin/dev-server",
+    "start": "NODE_ENV=development node bin/dev-server",
     "compile": "node bin/compile",
-    "dev": "NODE_ENV=development node bin/dev-server",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -36,7 +35,6 @@
     "http": "^0.0.0",
     "install": "^0.10.1",
     "ip": "^1.1.5",
-    "object-assign": "^4.1.1",
     "path": "^0.12.7",
     "prop-types": "^15.5.10",
     "react": "^15.6.0",
@@ -47,7 +45,9 @@
     "redux": "^3.6.0",
     "redux-immutable-state-invariant": "^2.0.0",
     "redux-logger": "^2.7.4",
+    "redux-observable": "^0.14.1",
     "redux-thunk": "^2.1.0",
+    "rxjs": "^5.4.1",
     "seamless-immutable": "^7.1.2",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.6.1",
